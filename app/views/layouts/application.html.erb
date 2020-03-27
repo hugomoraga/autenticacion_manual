@@ -11,6 +11,15 @@
 <body>
  <%= render 'shared/navbar' %>
  <div class="container">
+  <h5><%= current_user ? "hola user #{current_user.email}" : "Hola Visita" %></h5>
+            <br>
+            <p class="notice"><%= notice %></p>
+            <p class="alert"><%= alert %></p>
+                       <% flash.each do |_, value|%>
+                       <div >
+                             <%= value %>
+                             <% end %>
+                       </div>
       <%= yield %>
  </div>
 </body>

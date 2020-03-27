@@ -16,6 +16,7 @@ class PostsController < ApplicationController
   # GET /posts/new
   def new
     @post = Post.new
+    @post.user = current_user
   end
 
   # GET /posts/1/edit
@@ -27,6 +28,7 @@ class PostsController < ApplicationController
   def create
     @post = Post.new(post_params)
     # PENDING Add the current user to post
+    @post.user = current_user
 
     respond_to do |format|
       if @post.save
